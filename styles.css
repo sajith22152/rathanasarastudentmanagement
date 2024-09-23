@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #00bcd4;
+    --secondary-color: #ff4081;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-section, .search-section, .list-section, .data-management {
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.form-section:hover, .search-section:hover, .list-section:hover, .data-management:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 12px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+input {
+    flex: 1;
+    min-width: 200px;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    min-width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.search-container {
+    display: flex;
+    gap: 15px;
+}
+
+#searchInput {
+    flex-grow: 1;
+}
+
+#studentList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#studentList li {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#studentList li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+#studentList li button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+#studentList li button:hover {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .form-group, .button-group, .search-container {
+        flex-direction: column;
+    }
+
+    input, button {
+        width: 100%;
+    }
+}
+
+/* Custom styles for specific elements */
+#backupButton, #restoreButton {
+    background-color: #4caf50;
+}
+
+#backupButton:hover, #restoreButton:hover {
+    background-color: #45a049;
+}
+
+#resetButton {
+    background-color: #f44336;
+}
+
+#resetButton:hover {
+    background-color: #d32f2f;
+}
+
+/* Add some spacing and style to the file input */
+#fileInput {
+    display: none;
+}
+
+#restoreButton {
+    position: relative;
+    overflow: hidden;
+}
+
+#restoreButton input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}
+
+/* Add a futuristic glow effect to inputs on focus */
+input:focus {
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Add a pulsating effect to the search button */
+#searchButton {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

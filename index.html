@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සිසුන්ගේ තොරතුරු කළමනාකරණ පද්ධතිය</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>සිසුන්ගේ තොරතුරු කළමනාකරණ පද්ධතිය</h1>
+        </header>
+        
+        <main>
+            <section class="form-section">
+                <h2>සිසු තොරතුරු ඇතුළත් කිරීම</h2>
+                <form id="studentForm">
+                    <div class="form-group">
+                        <input type="text" id="admissionNumber" placeholder="ඇතුලත් විමේ අංකය" required>
+                        <input type="text" id="studentName" placeholder="ළමයාගේ නම" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="address" placeholder="ලිපිනය" required>
+                        <input type="date" id="dob" placeholder="උපන් දිනය" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="guardianName" placeholder="දෙමපිය භාරකරුගේ නම" required>
+                        <input type="tel" id="phoneNumber" placeholder="දුරකථන අංකය" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="siblingClass" placeholder="සහොදර සහොදරියන් සිටින පන්තිය">
+                        <input type="text" id="siblingName" placeholder="සහොදර සහොදරියන්ගේ නම">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="exitDate" placeholder="පාසලෙන් ඉවත් වූ දිනය">
+                        <input type="text" id="leaveReason" placeholder="පාසලෙන් ඉවත් වීමට හේතුව">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="submit">ඇතුළත් කරන්න</button>
+                        <button type="button" id="resetButton">නැවත සකසන්න</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="search-section">
+                <h2>සිසුන් සොයන්න</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="නම හෝ ඇතුලත් විමේ අංකය ඇතුළත් කරන්න">
+                    <button id="searchButton">සොයන්න</button>
+                </div>
+            </section>
+
+            <section class="list-section">
+                <h2>සිසුන්ගේ ලැයිස්තුව</h2>
+                <ul id="studentList"></ul>
+            </section>
+
+            <section class="data-management">
+                <h2>දත්ත කළමනාකරණය</h2>
+                <div class="button-group">
+                    <button id="backupButton">බැකප් ගන්න</button>
+                    <input type="file" id="fileInput" accept=".json" style="display: none;">
+                    <button id="restoreButton">නැවත යොදන්න</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
